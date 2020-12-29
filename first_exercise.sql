@@ -105,3 +105,24 @@ You can use the SQL function REPLACE.
 SELECT name, REPLACE(capital, name, '') as extenshion
 FROM world
  WHERE capital LIKE concat(name, '%') AND capital <> name;
+ 
+ 
+#15)Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers, total number of managers, and total number of employees. Order your output by ascending company_code.
+
+SELECT  c.company_code,
+        c.founder,  
+        COUNT(distinct l.lead_manager_code), 
+        COUNT(distinct s.senior_manager_code), 
+        COUNT(distinct m.manager_code),
+        COUNT(distinct e.employee_code)
+from Company as c 
+join Lead_Manager as l 
+on c.company_code = l.company_code
+join Senior_Manager as s
+on l.lead_manager_code = s.lead_manager_code
+join Manager as m 
+on m.senior_manager_code = s.senior_manager_code
+join Employee as e
+on e.manager_code = m.manager_code
+group by c.company_code, c.founder
+order by c.company_code;
