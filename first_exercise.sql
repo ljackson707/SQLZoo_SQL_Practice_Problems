@@ -108,6 +108,8 @@ FROM world
  
  
 #15)Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers, total number of managers, and total number of employees. Order your output by ascending company_code.
+#The c. allows you to designate a specific variable from a specific tble in this case c stands for the company table and use used as c. in front of founder and company_code.
+
 
 SELECT  c.company_code,
         c.founder,  
