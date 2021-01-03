@@ -113,10 +113,10 @@ FROM world
 
 SELECT  c.company_code,
         c.founder,  
-        COUNT(distinct l.lead_manager_code), 
-        COUNT(distinct s.senior_manager_code), 
-        COUNT(distinct m.manager_code),
-        COUNT(distinct e.employee_code)
+       COUNT(distinct l.lead_manager_code), 
+       COUNT(distinct s.senior_manager_code), 
+       COUNT(distinct m.manager_code),
+       COUNT(distinct e.employee_code)
 from Company as c 
 join Lead_Manager as l 
 on c.company_code = l.company_code
